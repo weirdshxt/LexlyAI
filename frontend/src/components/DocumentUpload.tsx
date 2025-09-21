@@ -16,7 +16,6 @@ const DocumentUpload: React.FC<DocumentUploadProps> = ({
   loading,
 }) => {
   const [sessions, setSessions] = useState<SessionInfo[]>([]);
-  const [loadingSessions, setLoadingSessions] = useState(false);
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
@@ -38,14 +37,11 @@ const DocumentUpload: React.FC<DocumentUploadProps> = ({
   });
 
   const loadSessions = async () => {
-    setLoadingSessions(true);
     try {
       const sessionList = await ApiService.listSessions();
       setSessions(sessionList);
     } catch (error) {
       // handle error silently
-    } finally {
-      setLoadingSessions(false);
     }
   };
 
