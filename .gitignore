@@ -7,9 +7,9 @@
 
 # Google Cloud credentials
 service-account.json
-*.json
 !package.json
 !package-lock.json
+legal-document-ai-472007-cc996af862d9.json
 
 # Python
 __pycache__/
