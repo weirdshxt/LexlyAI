@@ -8,7 +8,7 @@ import {
   SessionData,
 } from "../types";
 
-const API_BASE_URL =  "https://lexly-ai-backend-303476233028.us-central1.run.app" || "http://localhost:8000";
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 class ApiService {
   private static api = axios.create({
