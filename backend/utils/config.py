@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     # Server Configuration
     host: str = os.getenv("HOST", "0.0.0.0")
     port: int = int(os.getenv("PORT", "8000"))
-    cors_origins: List[str] = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+    cors_origins: List[str] = os.getenv("CORS_ORIGINS", "http://localhost:3000,https://lexly-ai.vercel.app").split(",")
     
     
     class Config:

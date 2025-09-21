@@ -12,7 +12,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-  const [documentAnalysis, setDocumentAnalysis] = useState<DocumentAnalysisType | null>(null);
+  const [documentAnalysis, setDocumentAnalysis] =
+    useState<DocumentAnalysisType | null>(null);
 
   const handleTabChange = (tabIdx: number) => setCurrentTab(tabIdx);
 
@@ -55,20 +56,47 @@ function App() {
       <header className="app-header">
         <div className="app-title">Lexly AI</div>
         <nav className="app-nav">
-          <button className={currentTab === 0 ? "active" : ""} onClick={() => handleTabChange(0)}>Upload</button>
-          <button className={currentTab === 1 ? "active" : ""} onClick={() => handleTabChange(1)} disabled={!documentAnalysis}>Analysis</button>
-          <button className={currentTab === 2 ? "active" : ""} onClick={() => handleTabChange(2)} disabled={!documentAnalysis}>AI Assistant</button>
+          <button
+            className={currentTab === 0 ? "active" : ""}
+            onClick={() => handleTabChange(0)}
+          >
+            Upload
+          </button>
+          <button
+            className={currentTab === 1 ? "active" : ""}
+            onClick={() => handleTabChange(1)}
+            disabled={!documentAnalysis}
+          >
+            Analysis
+          </button>
+          <button
+            className={currentTab === 2 ? "active" : ""}
+            onClick={() => handleTabChange(2)}
+            disabled={!documentAnalysis}
+          >
+            AI Assistant
+          </button>
         </nav>
       </header>
       <main className="app-main">
         {currentTab === 0 && (
-          <DocumentUpload onUpload={handleDocumentUpload} onSessionLoad={handleSessionLoad} loading={loading} />
+          <DocumentUpload
+            onUpload={handleDocumentUpload}
+            onSessionLoad={handleSessionLoad}
+            loading={loading}
+          />
         )}
         {currentTab === 1 && documentAnalysis && sessionData && (
-          <DocumentAnalysis sessionData={sessionData} documentAnalysis={documentAnalysis} />
+          <DocumentAnalysis
+            sessionData={sessionData}
+            documentAnalysis={documentAnalysis}
+          />
         )}
         {currentTab === 2 && documentAnalysis && sessionData && (
-          <ChatInterface sessionData={sessionData} onSessionUpdate={setSessionData} />
+          <ChatInterface
+            sessionData={sessionData}
+            onSessionUpdate={setSessionData}
+          />
         )}
         {error && <div className="app-alert error">{error}</div>}
         {success && <div className="app-alert success">{success}</div>}
