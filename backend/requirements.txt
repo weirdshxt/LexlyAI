@@ -1,0 +1,16 @@
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart
+langchain
+langchain-google-vertexai
+google-cloud-documentai
+google-cloud-firestore
+pydantic
+pydantic-settings
+python-dotenv
+aiofiles
+google-auth
+google-cloud-storage
+docx2pdf
+python-docx
+reportlab
